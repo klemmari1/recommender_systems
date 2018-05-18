@@ -16,8 +16,8 @@ def main(number_of_recommendations=3):
             scores[user] = {}
         #Calculate the score according to the weightings
         for movie, content_score in ratings.items():
-            if (str(int(movie)) in collaborative_ratings[str(int(user))]):
-                scores[user][movie] = content_weight * content_score + collaborative_weight * collaborative_ratings[str(int(user))][str(int(movie))]
+            if (movie in collaborative_ratings[user]):
+                scores[user][movie] = content_weight * content_score + collaborative_weight * collaborative_ratings[user][movie]
         scores[user] = dict(sorted(scores[user].items(), key=operator.itemgetter(1), reverse=True))
     for user, movies in scores.items():
         print("Scores for user " + str(user) + ":")

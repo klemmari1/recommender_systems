@@ -70,7 +70,7 @@ def main(number_of_movies = 5):
 
     user_recommendations = {}
     for user, genre_dict in user_genres.items():
-        user_recommendations[user] = most_similar_movies(genre_dict, movie_dict, seen_movies[user], number_of_movies)
+        user_recommendations[int(user)] = most_similar_movies(genre_dict, movie_dict, seen_movies[user], number_of_movies)
         #print("Content-based recommended movies for user " + str(user) + ":")
         #print(user_recommendations[user])
     return user_recommendations

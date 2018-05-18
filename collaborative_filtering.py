@@ -76,7 +76,7 @@ def user_recommendations(person, data):
                 denominators[movie] += score * 5 # 5 = Max rating for movies. Normalizing scores between 0 and 1.
     ratings = {}
     for movie, _ in numerators.items():
-        ratings[movie] = numerators[movie] / denominators[movie]
+        ratings[int(movie)] = numerators[movie] / denominators[movie]
     sorted_ratings = dict(sorted(ratings.items(), key=operator.itemgetter(1)))
     return sorted_ratings
 
@@ -91,7 +91,7 @@ def main():
         user_dict[line[0]][line[1]] = line[2]
     user_recommnd = {}
     for user, data in user_dict.items():
-        user_recommnd[user] = user_recommendations(user, user_dict)
+        user_recommnd[int(user)] = user_recommendations(user, user_dict)
         #print("Collaborative movie ratings for user " + str(user) + ":")
         #print(user_recommendations[user])
     return user_recommnd
