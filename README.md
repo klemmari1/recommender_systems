@@ -1,5 +1,5 @@
 # recommender_systems
-Recommender systems implemented with collaborative, content-based and hybrid filtering
+Movie recommender system based on user reviews and movie data.
 
 
 Collaborative filtering = Recommendations based on reviews from other users
